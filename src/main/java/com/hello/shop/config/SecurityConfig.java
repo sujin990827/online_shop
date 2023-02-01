@@ -13,12 +13,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Bean
 	public BCryptPasswordEncoder encoder(){
+
 		return new BCryptPasswordEncoder();
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
 		http.csrf().disable();
+
 		http.authorizeRequests()
 			.antMatchers("/", "/main/**").authenticated() //인증 필요
 			.anyRequest().permitAll()

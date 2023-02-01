@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -49,6 +51,10 @@ public class User {
 	@OneToOne(mappedBy = "user")
 	private Cart cart;
 
+
+
+
+	@DateTimeFormat(pattern = "yyyy-mm-dd")
 	private LocalDateTime createDate; // 생성날짜
 
 	@PrePersist // 디비에 삽입 되기 전에 실행됨.

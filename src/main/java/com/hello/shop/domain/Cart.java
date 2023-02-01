@@ -36,12 +36,12 @@ public class Cart {
 
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "user_id")
-	User user;
+	private User user;
 
 	private int count;
 
 	@OneToMany(mappedBy = "cart")
-	private List<CartItem> cart_items = new ArrayList<>();
+	private List<CartItem> cartItems = new ArrayList<>();
 
 	@DateTimeFormat(pattern = "yyyy-mm-dd")
 	private LocalDate createDate; //날짜

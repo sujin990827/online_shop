@@ -39,9 +39,8 @@ public class Item {
 	private int price;
 	private int count;
 	private int stock;
-	private String photo;
 
-	private boolean isSoldout; //(0:판매중, 1:품절)
+	private int isSoldout; //(0:판매중, 1:품절)
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "seller_id")
@@ -53,9 +52,9 @@ public class Item {
 	private String imgName; //이미지 파일명
 	private String imgPath; //이미지 조회 경로
 
-	@ManyToOne
-	@JoinColumn(name = "user_id")
-	private User user;
+	// @ManyToOne
+	// @JoinColumn(name = "user_id")
+	// private User user;
 
 	@DateTimeFormat(pattern = "yyyy-mm-dd")
 	private LocalDate createDate; // 상품 등록 날짜
