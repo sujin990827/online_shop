@@ -1,12 +1,16 @@
 package com.hello.shop.domain;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 
 import lombok.AllArgsConstructor;
@@ -37,6 +41,13 @@ public class User {
 
 	private int coin; //구매자: 충전한 돈, 판매자: 수익
 
+	// 판매자가 가지고 있는 상품들
+	@OneToMany(mappedBy = "seller")
+	private List<Item> items = new ArrayList<>();
+
+	// 구매자의 장바구니
+	@OneToOne(mappedBy = "user")
+	private Cart cart;
 
 	private LocalDateTime createDate; // 생성날짜
 
