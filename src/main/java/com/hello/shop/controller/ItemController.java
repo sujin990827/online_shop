@@ -32,7 +32,6 @@ public class ItemController {
     private final UserPageService userPageService;
     private final CartService cartService;
 
-    // 메인 페이지 html 하나로 통일
     // 메인 페이지 (로그인 안 한 유저) /localhost:8080
     @GetMapping("/")
     public String mainPageNoneLogin(Model model) {
